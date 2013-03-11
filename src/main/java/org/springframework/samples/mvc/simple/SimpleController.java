@@ -28,7 +28,7 @@ public class SimpleController {
 
         try {
             String url = "http://localhost:8081/resources/sitemap.xml";
-
+            /*
             ExecutorService execute = Executors.newFixedThreadPool(nThreads);
 
             for (int i = 0; i < nThreads; ++i) {
@@ -38,38 +38,14 @@ public class SimpleController {
             execute.awaitTermination(1000, TimeUnit.MILLISECONDS);
 
             execute.shutdown();
+            */
 
-            /*
             SiteMap sm = new SiteMap();
             sm.setUrl(url);
             sm.parse();
             ArrayList<SiteMapUrl> urlList = sm.getUrlList();
 
-            for (int count = 0; count < urlList.size(); count++) {
-                String s = "1";
-            }*/
 
-            /*
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(new URL(url).openStream());
-            NodeList nodeList = doc.getElementsByTagName("url");
-
-            for (int count = 0; count < nodeList.getLength(); count++) {
-                Node nNode = nodeList.item(count);
-
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element eElement = (Element) nNode;
-                    NodeList nameNodeList = eElement.getElementsByTagName("loc");
-                    for (int eIndex = 0; eIndex < nameNodeList.getLength(); eIndex++) {
-                        if (nameNodeList.item(eIndex).getNodeType() == Node.ELEMENT_NODE) {
-                            Element nameElement = (Element) nameNodeList.item(eIndex);
-                            loc = loc.concat(nameElement.getFirstChild().getNodeValue().trim());
-                            loc = loc.concat("<br>");
-                        }
-                    }
-                }
-            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
